@@ -14,7 +14,7 @@ public class FileInOut {
 			boolean isMultiplayerGame, boolean setName, String userName, boolean isHosting,
 			String connectTo, boolean noDownload, boolean localHost,
 			String serverName, boolean isDedicated, boolean useMasterServ, String roomID, boolean useAdminPassword, String adminPassword, boolean upload,
-			int gameTypeIndex, int teamIndex, boolean enablePointlimit, boolean enableTimeLimit, int pointLimit, int timeLimit,
+			int gameTypeIndex, boolean enablePointlimit, boolean enableTimeLimit, int pointLimit, int timeLimit,
 			boolean playerCap, int maxPlayers, boolean noWeaponRings, boolean suddenDeath, int advanceMapIndex, boolean forceSkin,
 			int forceSkinIndex,
 			boolean useLauncherPath, String workingDirectory, boolean useWine,
@@ -131,9 +131,11 @@ public class FileInOut {
 				if(useAdminPassword)
 					command+="-password "+adminPassword+" ";
 				command+="-gametype "+gameTypeIndex+" ";
-				command+="+changeteam "+teamIndex+" ";
 				
 				command+="+advancemap "+advanceMapIndex+" ";
+				
+				if(!serverName.isEmpty() && serverName!="" && !serverName.contains("\""))
+					command+="+servername \""+serverName+"\"";
 				
 				if(enablePointlimit)
 					command+="+pointlimit "+pointLimit+" ";
@@ -195,7 +197,7 @@ public class FileInOut {
 			boolean isMultiplayerGame, boolean setName, String userName, boolean isHosting,
 			String connectTo, boolean noDownload, boolean localHost,
 			String serverName, boolean isDedicated, boolean useMasterServ, String roomID, boolean useAdminPassword, String adminPassword, boolean upload,
-			int gameTypeIndex, int teamIndex, boolean enablePointlimit, boolean enableTimeLimit, int pointLimit, int timeLimit,
+			int gameTypeIndex, boolean enablePointlimit, boolean enableTimeLimit, int pointLimit, int timeLimit,
 			boolean playerCap, int maxPlayers, boolean noWeaponRings, boolean suddenDeath, int advanceMapIndex, boolean forceSkin,
 			int forceSkinIndex,
 			boolean useLauncherPath, String workingDirectory, boolean useWine)

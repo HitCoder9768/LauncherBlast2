@@ -51,7 +51,7 @@ public class AboutWindow {
 		lblSrbCrossplatformLauncher.setBounds(10, 11, 179, 14);
 		frame.getContentPane().add(lblSrbCrossplatformLauncher);
 		
-		JLabel lblVersion = new JLabel("Version 1.9 (revision 4)");
+		JLabel lblVersion = new JLabel("Version 2.0.2");
 		lblVersion.setBounds(10, 36, 179, 14);
 		frame.getContentPane().add(lblVersion);
 		

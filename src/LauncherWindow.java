@@ -803,74 +803,65 @@ public class LauncherWindow {
 		tabGame.add(cmbGameType);
 		cmbGameType.setModel(new DefaultComboBoxModel<>(new String[] {"Co-op", "Competition", "Race", "Match", "Team Match", "Tag", "Hide and Seek", "Capture the Flag"}));
 		
-		JLabel lblTeam = new JLabel("Team:");
-		lblTeam.setBounds(12, 47, 46, 14);
-		tabGame.add(lblTeam);
-		
-		JComboBox<String> cmbTeam = new JComboBox<>();
-		cmbTeam.setBounds(131, 43, 278, 23);
-		tabGame.add(cmbTeam);
-		cmbTeam.setModel(new DefaultComboBoxModel<>(new String[] {"Spectator", "Red", "Blue"}));
-		
 		txtTimeLimit = new JTextField();
-		txtTimeLimit.setBounds(131, 148, 278, 23);
+		txtTimeLimit.setBounds(131, 113, 278, 23);
 		tabGame.add(txtTimeLimit);
 		txtTimeLimit.setEnabled(false);
 		txtTimeLimit.setText("5");
 		txtTimeLimit.setColumns(10);
 		
 		JCheckBox chckbxTimeLimit = new JCheckBox("Time limit:");
-		chckbxTimeLimit.setBounds(8, 148, 105, 23);
+		chckbxTimeLimit.setBounds(8, 113, 105, 23);
 		tabGame.add(chckbxTimeLimit);
 		
 		JCheckBox chckbxPointLimit = new JCheckBox("Point limit:");
-		chckbxPointLimit.setBounds(8, 113, 105, 23);
+		chckbxPointLimit.setBounds(8, 78, 105, 23);
 		tabGame.add(chckbxPointLimit);
 		
 		txtPointLimit = new JTextField();
-		txtPointLimit.setBounds(131, 113, 278, 23);
+		txtPointLimit.setBounds(131, 78, 278, 23);
 		tabGame.add(txtPointLimit);
 		txtPointLimit.setEnabled(false);
 		txtPointLimit.setText("1000");
 		txtPointLimit.setColumns(10);
 		
 		JCheckBox chckbxMaxPlayers = new JCheckBox("Max players:");
-		chckbxMaxPlayers.setBounds(8, 183, 115, 23);
+		chckbxMaxPlayers.setBounds(8, 148, 115, 23);
 		tabGame.add(chckbxMaxPlayers);
 		
 		txtMaxPlayers = new JTextField();
-		txtMaxPlayers.setBounds(131, 183, 278, 23);
+		txtMaxPlayers.setBounds(131, 148, 278, 23);
 		tabGame.add(txtMaxPlayers);
 		txtMaxPlayers.setEnabled(false);
 		txtMaxPlayers.setText("4");
 		txtMaxPlayers.setColumns(10);
 		
 		JCheckBox chckbxDisableWeaponRings = new JCheckBox("Disable weapon rings");
-		chckbxDisableWeaponRings.setBounds(8, 218, 192, 23);
+		chckbxDisableWeaponRings.setBounds(8, 183, 192, 23);
 		tabGame.add(chckbxDisableWeaponRings);
 		
 		JLabel lblAdvanceMap = new JLabel("Advance map:");
-		lblAdvanceMap.setBounds(12, 82, 115, 14);
+		lblAdvanceMap.setBounds(12, 47, 115, 14);
 		tabGame.add(lblAdvanceMap);
 		
 		JComboBox<String> cmbAdvanceMap = new JComboBox<>();
-		cmbAdvanceMap.setBounds(131, 78, 278, 23);
+		cmbAdvanceMap.setBounds(131, 42, 278, 23);
 		tabGame.add(cmbAdvanceMap);
 		cmbAdvanceMap.setModel(new DefaultComboBoxModel<>(new String[] {"Off", "Next", "Random"}));
 		cmbAdvanceMap.setSelectedIndex(1);
 		
 		JCheckBox chckbxSuddenDeath = new JCheckBox("Sudden death");
-		chckbxSuddenDeath.setBounds(204, 218, 205, 23);
+		chckbxSuddenDeath.setBounds(204, 183, 205, 23);
 		tabGame.add(chckbxSuddenDeath);
 		
 		JComboBox<String> cmbForceSkin = new JComboBox<>();
-		cmbForceSkin.setBounds(131, 252, 278, 23);
+		cmbForceSkin.setBounds(131, 217, 278, 23);
 		tabGame.add(cmbForceSkin);
 		cmbForceSkin.setEnabled(false);
 		cmbForceSkin.setModel(new DefaultComboBoxModel<>(new String[] {"Sonic", "Tails", "Knuckles"}));
 		
 		JCheckBox chckbxForceSkin = new JCheckBox("Force skin:");
-		chckbxForceSkin.setBounds(8, 252, 115, 23);
+		chckbxForceSkin.setBounds(8, 217, 115, 23);
 		tabGame.add(chckbxForceSkin);
 		chckbxForceSkin.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
@@ -1096,8 +1087,8 @@ public class LauncherWindow {
 							chckbxExecuteScript.isSelected(), txtExec.getText(), chckbxMultiplayerGame.isSelected(), lblName.isSelected(),
 							txtName.getText(), (tbpNetwork.getSelectedIndex()==1), txtIP.getText(), chckbxDontDownloadFiles.isSelected(), chckbxJoinMyOwn.isSelected(),
 							txtServerName.getText(), chckbxDedicated.isSelected(), chckbxAdvertiseOnInternet.isSelected(),
-							txtRoomID.getText(), chckbxServerPassword.isSelected(), txtServerPassword.getPassword().toString(), chckbxAllowWadDownloading.isSelected(),
-							cmbGameType.getSelectedIndex(), cmbTeam.getSelectedIndex(), chckbxPointLimit.isSelected(),
+							txtRoomID.getText(), chckbxServerPassword.isSelected(), new String(txtServerPassword.getPassword()), chckbxAllowWadDownloading.isSelected(),
+							cmbGameType.getSelectedIndex(), chckbxPointLimit.isSelected(),
 							chckbxTimeLimit.isSelected(), Integer.parseInt(txtPointLimit.getText()), Integer.parseInt(txtTimeLimit.getText()),
 							chckbxMaxPlayers.isSelected(), Integer.parseInt(txtMaxPlayers.getText()),
 							chckbxDisableWeaponRings.isSelected(), chckbxSuddenDeath.isSelected(), cmbAdvanceMap.getSelectedIndex(),
@@ -1121,8 +1112,8 @@ public class LauncherWindow {
 								chckbxExecuteScript.isSelected(), txtExec.getText(), chckbxMultiplayerGame.isSelected(), lblName.isSelected(),
 								txtName.getText(), (tbpNetwork.getSelectedIndex()==1), txtIP.getText(), chckbxDontDownloadFiles.isSelected(), chckbxJoinMyOwn.isSelected(),
 								txtServerName.getText(), chckbxDedicated.isSelected(), chckbxAdvertiseOnInternet.isSelected(),
-								txtRoomID.getText(), chckbxServerPassword.isSelected(), txtServerPassword.getPassword().toString(), chckbxAllowWadDownloading.isSelected(),
-								cmbGameType.getSelectedIndex(), cmbTeam.getSelectedIndex(), chckbxPointLimit.isSelected(),
+								txtRoomID.getText(), chckbxServerPassword.isSelected(), new String(txtServerPassword.getPassword()), chckbxAllowWadDownloading.isSelected(),
+								cmbGameType.getSelectedIndex(), chckbxPointLimit.isSelected(),
 								chckbxTimeLimit.isSelected(), Integer.parseInt(txtPointLimit.getText()), Integer.parseInt(txtTimeLimit.getText()),
 								chckbxMaxPlayers.isSelected(), Integer.parseInt(txtMaxPlayers.getText()),
 								chckbxDisableWeaponRings.isSelected(), chckbxSuddenDeath.isSelected(), cmbAdvanceMap.getSelectedIndex(),
@@ -1158,8 +1149,8 @@ public class LauncherWindow {
 							chckbxExecuteScript.isSelected(), txtExec.getText(), chckbxMultiplayerGame.isSelected(), lblName.isSelected(),
 							txtName.getText(), (tbpNetwork.getSelectedIndex()==1), txtIP.getText(), chckbxDontDownloadFiles.isSelected(), chckbxJoinMyOwn.isSelected(),
 							txtServerName.getText(), chckbxDedicated.isSelected(), chckbxAdvertiseOnInternet.isSelected(),
-							txtRoomID.getText(), chckbxServerPassword.isSelected(), txtServerPassword.getPassword().toString(), chckbxAllowWadDownloading.isSelected(),
-							cmbGameType.getSelectedIndex(), cmbTeam.getSelectedIndex(), chckbxPointLimit.isSelected(),
+							txtRoomID.getText(), chckbxServerPassword.isSelected(), new String(txtServerPassword.getPassword()), chckbxAllowWadDownloading.isSelected(),
+							cmbGameType.getSelectedIndex(), chckbxPointLimit.isSelected(),
 							chckbxTimeLimit.isSelected(), Integer.parseInt(txtPointLimit.getText()), Integer.parseInt(txtTimeLimit.getText()),
 							chckbxMaxPlayers.isSelected(), Integer.parseInt(txtMaxPlayers.getText()),
 							chckbxDisableWeaponRings.isSelected(), chckbxSuddenDeath.isSelected(), cmbAdvanceMap.getSelectedIndex(),
@@ -1194,8 +1185,8 @@ public class LauncherWindow {
 						chckbxExecuteScript.isSelected(), txtExec.getText(), chckbxMultiplayerGame.isSelected(), lblName.isSelected(),
 						txtName.getText(), (tbpNetwork.getSelectedIndex()==1), txtIP.getText(), chckbxDontDownloadFiles.isSelected(), chckbxJoinMyOwn.isSelected(),
 						txtServerName.getText(), chckbxDedicated.isSelected(), chckbxAdvertiseOnInternet.isSelected(),
-						txtRoomID.getText(), chckbxServerPassword.isSelected(), txtServerPassword.getPassword().toString(), chckbxAllowWadDownloading.isSelected(),
-						cmbGameType.getSelectedIndex(), cmbTeam.getSelectedIndex(), chckbxPointLimit.isSelected(),
+						txtRoomID.getText(), chckbxServerPassword.isSelected(), new String(txtServerPassword.getPassword()), chckbxAllowWadDownloading.isSelected(),
+						cmbGameType.getSelectedIndex(), chckbxPointLimit.isSelected(),
 						chckbxTimeLimit.isSelected(), Integer.parseInt(txtPointLimit.getText()), Integer.parseInt(txtTimeLimit.getText()),
 						chckbxMaxPlayers.isSelected(), Integer.parseInt(txtMaxPlayers.getText()),
 						chckbxDisableWeaponRings.isSelected(), chckbxSuddenDeath.isSelected(), cmbAdvanceMap.getSelectedIndex(),
@@ -1243,8 +1234,8 @@ public class LauncherWindow {
 							chckbxExecuteScript.isSelected(), txtExec.getText(), chckbxMultiplayerGame.isSelected(), lblName.isSelected(),
 							txtName.getText(), (tbpNetwork.getSelectedIndex()==1), txtIP.getText(), chckbxDontDownloadFiles.isSelected(), chckbxJoinMyOwn.isSelected(),
 							txtServerName.getText(), chckbxDedicated.isSelected(), chckbxAdvertiseOnInternet.isSelected(),
-							txtRoomID.getText(), chckbxServerPassword.isSelected(), txtServerPassword.getPassword().toString(), chckbxAllowWadDownloading.isSelected(),
-							cmbGameType.getSelectedIndex(), cmbTeam.getSelectedIndex(), chckbxPointLimit.isSelected(),
+							txtRoomID.getText(), chckbxServerPassword.isSelected(), new String(txtServerPassword.getPassword()), chckbxAllowWadDownloading.isSelected(),
+							cmbGameType.getSelectedIndex(), chckbxPointLimit.isSelected(),
 							chckbxTimeLimit.isSelected(), Integer.parseInt(txtPointLimit.getText()), Integer.parseInt(txtTimeLimit.getText()),
 							chckbxMaxPlayers.isSelected(), Integer.parseInt(txtMaxPlayers.getText()),
 							chckbxDisableWeaponRings.isSelected(), chckbxSuddenDeath.isSelected(), cmbAdvanceMap.getSelectedIndex(),
@@ -1301,8 +1292,8 @@ public class LauncherWindow {
 							chckbxExecuteScript.isSelected(), txtExec.getText(), chckbxMultiplayerGame.isSelected(), lblName.isSelected(),
 							txtName.getText(), (tbpNetwork.getSelectedIndex()==1), txtIP.getText(), chckbxDontDownloadFiles.isSelected(), chckbxJoinMyOwn.isSelected(),
 							txtServerName.getText(), chckbxDedicated.isSelected(), chckbxAdvertiseOnInternet.isSelected(),
-							txtRoomID.getText(), chckbxServerPassword.isSelected(), txtServerPassword.getPassword().toString(), chckbxAllowWadDownloading.isSelected(),
-							cmbGameType.getSelectedIndex(), cmbTeam.getSelectedIndex(), chckbxPointLimit.isSelected(),
+							txtRoomID.getText(), chckbxServerPassword.isSelected(), new String(txtServerPassword.getPassword()), chckbxAllowWadDownloading.isSelected(),
+							cmbGameType.getSelectedIndex(), chckbxPointLimit.isSelected(),
 							chckbxTimeLimit.isSelected(), Integer.parseInt(txtPointLimit.getText()), Integer.parseInt(txtTimeLimit.getText()),
 							chckbxMaxPlayers.isSelected(), Integer.parseInt(txtMaxPlayers.getText()),
 							chckbxDisableWeaponRings.isSelected(), chckbxSuddenDeath.isSelected(), cmbAdvanceMap.getSelectedIndex(),
@@ -1364,8 +1355,8 @@ public class LauncherWindow {
 						chckbxExecuteScript.isSelected(), txtExec.getText(), chckbxMultiplayerGame.isSelected(), lblName.isSelected(),
 						txtName.getText(), (tbpNetwork.getSelectedIndex()==1), txtIP.getText(), chckbxDontDownloadFiles.isSelected(), chckbxJoinMyOwn.isSelected(),
 						txtServerName.getText(), chckbxDedicated.isSelected(), chckbxAdvertiseOnInternet.isSelected(),
-						txtRoomID.getText(), chckbxServerPassword.isSelected(), txtServerPassword.getPassword().toString(), chckbxAllowWadDownloading.isSelected(),
-						cmbGameType.getSelectedIndex(), cmbTeam.getSelectedIndex(), chckbxPointLimit.isSelected(),
+						txtRoomID.getText(), chckbxServerPassword.isSelected(), new String(txtServerPassword.getPassword()), chckbxAllowWadDownloading.isSelected(),
+						cmbGameType.getSelectedIndex(), chckbxPointLimit.isSelected(),
 						chckbxTimeLimit.isSelected(), Integer.parseInt(txtPointLimit.getText()), Integer.parseInt(txtTimeLimit.getText()),
 						chckbxMaxPlayers.isSelected(), Integer.parseInt(txtMaxPlayers.getText()),
 						chckbxDisableWeaponRings.isSelected(), chckbxSuddenDeath.isSelected(), cmbAdvanceMap.getSelectedIndex(),
